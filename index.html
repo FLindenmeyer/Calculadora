@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculadora</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+
+  <body class="min-h-screen flex flex-col items-center justify-center">
+    <div
+      id="calculadora"
+      class="bg-gradient-to-r from-green-400 to-blue-500 border-4 border-double border-black rounded-2xl"
+    >
+      <header
+        id="display"
+        class="relative flex items-center justify-end p-3 text-4xl w-100% h-24 border-2 border-white rounded-2xl"
+      >
+        <button  data-action="operator" class="flex m-1"><i id="btn_historico" data-key="h" class="fas fa-history text-xl"></i></button>
+        <div id="display_principal" class="animate-pulse">0</div>
+        <div id="display_secundario"
+          class="absolute text-xl top-0.5 right-8 text-white text-opacity-50"
+        ></div>
+
+        <ul hidden id="historico" class="absolute -inset-x-0.5 inset-y-24 bg-gray-900 text-white border-black rounded-2xl text-black">Histórico</ul>
+
+      </header>
+
+      <main id="teclas" class="grid grid-cols-4 gap-0.5">
+        <button
+          id="ac"
+          data-action="operator"
+          data-key="Escape"
+          class="px-10 py-5 flex justify-center items-center border-double border-4 rounded-2xl border-green-300 hover:border-yellow-600"
+        >AC</button>
+        <button
+          id="del"
+          data-action="operator"
+          data-key="Backspace"
+          class="px-10 py-5 flex justify-center items-center rounded-lg border-double border-4 rounded-2xl border-green-300 hover:border-yellow-600"
+        >Del</button>
+        <button
+          id="soma"
+          data-action="operator"
+          data-key="+"
+          class="px-10 py-5 flex justify-center items-center rounded-lg border-double border-4 rounded-2xl border-green-300 hover:border-yellow-600"
+        >+</button>
+        <button
+          id="subtracao"
+          data-action="operator"
+          data-key="-"
+          class="px-10 py-5 flex justify-center items-center rounded-lg border-double border-4 rounded-2xl border-green-300 hover:border-yellow-600"
+        >-</button>
+        <button
+          data-action="keys"
+          data-key="7"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >7</button>
+        <button
+          data-action="keys"
+          data-key="8"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >8</button>
+        <button
+          data-action="keys"
+          data-key="9"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >9</button>
+        <button
+          id="multiplicacao"
+          data-action="operator"
+          data-key="*"
+          class="px-10 py-5 flex justify-center items-center rounded-lg border-double border-4 rounded-2xl border-green-300 hover:border-yellow-600"
+        >x</button>
+        <button
+          data-action="keys"
+          data-key="4"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >4</button>
+        <button
+          data-action="keys"
+          data-key="5"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >5</button>
+        <button
+          data-action="keys"
+          data-key="6"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >6</button>
+        <button
+          id="divisao"
+          data-action="operator"
+          data-key="/"
+          class="px-10 py-5 flex justify-center items-center rounded-lg border-double border-4 rounded-2xl border-green-300 hover:border-yellow-600"
+        >/</button>
+        <button
+          data-action="keys"
+          data-key="1"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >1</button>
+        <button
+          data-action="keys"
+          data-key="2"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >2</button>
+        <button
+          data-action="keys"
+          data-key="3"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >3</button>
+        <button
+          id="igual"
+          data-action="operator"
+          data-key="Enter"
+          class="px-10 py-5 row-span-2 flex justify-center items-center border-double border-4 rounded-2xl border-green-300 hover:border-yellow-600"
+        >=</button>
+        <button
+          id="transformar"
+          data-action="operator"
+          data-key="`"
+          class="px-10 py-5 flex justify-center items-center rounded-lg border-double border-4 rounded-2xl border-green-300 hover:border-yellow-600"
+        ><sup>+</sup>/<sub>-</sub></button>
+        <button
+          data-action="keys"
+          data-key="0"
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >0</button>
+        <button
+          data-action="keys"
+          data-key="."
+          class="px-10 py-5 flex justify-center items-center border-4 border-double border-red-300 rounded-2xl hover:border-yellow-600"
+        >.</button>
+      </main>
+    </div>
+
+    <link rel="stylesheet" href="./assets/index.js" />
+  </body>
+</html>

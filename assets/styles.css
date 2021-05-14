@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  color: white;
+  font-weight: 700;
+}
+
+#teclas {
+  font-size: 20px;
+}
+
+main button {
+  background: rgba(0, 0, 0, 0.9);
+  outline: 0 !important;
+}
+
+main button:active {
+  border-color: orangered !important;
+}
+
+header button {
+position: absolute;
+top: 0 !important;
+left: 0 !important;
+outline: none !important;
+z-index: 20;
+
+}
+
+#historico {
+  height: 400px !important;
+  width: 482px !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: white;
+  padding: 10px;
+  z-index: 10;
+}
+#historico li {
+font-size: 20px;
+padding: 10px;
+}
+
+
+/* header {
+width: 443.350px;
+} */
